@@ -82,21 +82,4 @@
 <p>We have a sample site which integrates AdGraph, and use AI where advertisers can upload content, from which we will automatically extract labels and perform searches to find the wallet addresses who will be interested in it. We show the advertisers the list of wallet addresses and which tags make them suited for the content.</p>
 <h2 id="the-graph">The Graph</h2>
 <p>We use The Graph for indexing the data. We have a hosted subgraph for testnet. This will make it easy for developers to read from AdGraph.</p>
-<h1 id="future-roadmap">Future Roadmap</h1>
-<p>Our contracts and core functionalities are ready. We are working on making the onboarding and usage easy. We will be simplifying the developer experience by providing SDKs for easy contribution and hosted APIs for easy consumption.</p>
-<p>A longer term goal would be to create a service where advertisers can upload content, and we target them ourselves with the open data we have. This is similar to how Google targets ads, but in a decentralized manner.</p>
-<h1 id="notes">Notes</h1>
-<ul>
-<li>Apps get discovered when they are brought in front of users who will be most interested in them.</li>
-<li>Using the open and decentralized nature of blockchains, we imagined an open and decentralized graph for advertisers.</li>
-<li>Imagine Shop3, a shopping site and Scroll, a social media. They keep publishing what the user’s interests are to their ad graph.</li>
-<li>When the user opens a shoe page on Scroll, “shoe” gets added to AdGraph. When Shop3 wants to advertise a shoe, it can instantly pull up wallet addresses interested in that particular tag. Maybe Shop3 can even advertise on Scroll.</li>
-<li>The network grows stronger as more apps join the network.</li>
-<li>Discovery increases for everyone, especially for new joiners who will have a host of information available at their disposal about who will be most interested in them.</li>
-<li>The user can of course remove certain tags or even block certain apps or tags.</li>
-<li>To achieve scale, the tag addition function needs to be triggered at interaction points, across buttons and page loads. We use Fleek functions to handle such clickstreams.</li>
-<li>The function internally publishes the data to AdGraph’s smart contracts, and all such transactions are sponsored using CoinBase’s Paymaster.</li>
-<li>The user’s profile page shows all the apps and the tags they have added. Here they can remove tags or block certain apps or tags.</li>
-<li>We also integrated AI to improve the advertiser experience. You just upload an image, we use AI to extract the tags and fetch a list of wallet addresses who will be interested in that image, along with the top matching tag for each address.</li>
-</ul>
 </body>
