@@ -1,39 +1,5 @@
 <body style="background-color: black; color: white;">
 <h1 id="adgraph">AdGraph</h1>
 <p>AdGraph is an open, decentralized on-chain graph of user preferences.</p>
-<p>As social and commerce shift onchain, wallets become identities. AdGraph builds onchain profiles of wallet addresses, capturing likes and preferences across all web3 apps they use. This data can used to personalize ads and content across the web3 ecosystem.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>AdGraph decentralizes and opens up the preferences of a profile. It is an onchain graph of tags where any app can add preferences for a user, for example when a user browses through the profile of a travel vlog, the app can add &quot;travel&quot; to the user&#39;s profile.</p>
-<p><img src="https://github.com/KryptoNights/adgraph/blob/main/screenshots/graph.png?raw=true" alt="graph" style="max-width: 100%; height: auto;"></p>
-<p>This profile is open, in the sense any app can add tags for their users, and can see the data added by other apps. The user can block/allow apps that are allowed to add, or can block/remove tags from their profile.</p>
-<p>This allows decentralized apps to collaborate and contribute to the user&#39;s profile because they themselves can utilize the data added in order to target content or ads.</p>
-<p><img src="https://github.com/KryptoNights/adgraph/blob/main/screenshots/profile.png?raw=true" alt="profile" style="max-width: 100%; height: auto;"></p>
-<p>We built a service to demonstrate how this data can be used. Advertisers can upload a content, and we use AI to filter out the wallet addresses who will be interested in that content. The AI analyzes the content and fetches the tags, and then searches the AdGraph to find the wallet addresses who have shown interest in those tags.</p>
-<p>A sample request of how to read from AdGraph is in the <a href="#integrating-adgraph">Integrating AdGraph</a> section.</p>
-<table>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://github.com/KryptoNights/adgraph/blob/main/screenshots/ai.png?raw=true" alt="" style="max-width: 100%; height: auto;"></td>
-<td style="text-align:center"><img src="https://github.com/KryptoNights/adgraph/blob/main/screenshots/ai2.png?raw=true" alt="" style="max-width: 100%; height: auto;"></td>
-</tr>
-</tbody>
-</table>
-<p>AdGraph can be used by the individual applications who contribute to the network to personalize their content. It can also be used by ad networks who operate across applications in order to target products to users.</p>
-<h1 id="integrating-adgraph">Integrating AdGraph</h1>
-<p>While using AdGraph, you will be both contributing to users&#39; profiles, as well as consuming the data for your use cases, like targeting ads or content.</p>
-<h2 id="contributing-to-adgraph">Contributing to AdGraph</h2>
-<p>Integrating AdGraph is easy. You need to make a GET request like:</p>
-<pre><code class="lang-ts"><span class="hljs-selector-tag">axios</span><span class="hljs-selector-class">.get</span>(<span class="hljs-string">'https://hollow-kilobyte-modern.functions.on-fleek.app'</span>, {
-    <span class="hljs-attribute">params</span>: {
-        <span class="hljs-attribute">profile</span>: <span class="hljs-string">"&lt;user's wallet address&gt;"</span>,
-        <span class="hljs-attribute">app</span>: <span class="hljs-string">"&lt;your app name&gt;"</span>,
-        <span class="hljs-attribute">tags</span>: <span class="hljs-string">"&lt;comma separated tags&gt;"</span>,
-        <span class="hljs-attribute">temporary_api_key</span>: <span class="hljs-string">"appkey_testnet"</span>
-    }
-});
-</code></pre>
-<h2 id="reading-from-adgraph">Reading from AdGraph</h2>
-<p>You can use your own indexers to read from AdGraph, or use our hosted subgraph.</p>
-<p>We are working on more diverse and better managed services for AdGraph. Keep visiting our docs for further info.</p>
-<p>Note: This is an alpha product, things might break. Active development is going on to help make the usage and onboarding easy. We would love to speak with anyone interested in it. Mail us at <a href="mailto:adgraph@debjit.dev">adgraph@debjit.dev</a> for issues you’re facing or custom GraphQL queries you need.</p>
-</body>
+<!-- link -->
+<a href="https://adgraph.debjit.dev">Visit AdGraph</a>
