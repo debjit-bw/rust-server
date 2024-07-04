@@ -11,12 +11,6 @@
 <p>We built a service to demonstrate how this data can be used. Advertisers can upload a content, and we use AI to filter out the wallet addresses who will be interested in that content. The AI analyzes the content and fetches the tags, and then searches the AdGraph to find the wallet addresses who have shown interest in those tags.</p>
 <p>A sample request of how to read from AdGraph is in the <a href="#integrating-adgraph">Integrating AdGraph</a> section.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">Advertiser AI sample 1</th>
-<th style="text-align:center">Advertiser AI sample 2</th>
-</tr>
-</thead>
 <tbody>
 <tr>
 <td style="text-align:center"><img src="https://github.com/KryptoNights/adgraph/blob/main/screenshots/ai.png?raw=true" alt="" style="max-width: 100%; height: auto;"></td>
@@ -38,48 +32,8 @@
     }
 });
 </code></pre>
-<p>For example,</p>
-<pre><code class="lang-ts"><span class="hljs-selector-tag">axios</span><span class="hljs-selector-class">.get</span>(<span class="hljs-string">'https://hollow-kilobyte-modern.functions.on-fleek.app'</span>, {
-    <span class="hljs-attribute">params</span>: {
-        <span class="hljs-attribute">profile</span>: <span class="hljs-string">"0x4bec619bf1834bbe11f334117aca57bf68f0bc2c"</span>,
-        <span class="hljs-attribute">app</span>: <span class="hljs-string">"shop3"</span>,
-        <span class="hljs-attribute">tags</span>: <span class="hljs-string">"tag1,tag2,tag3"</span>,
-        <span class="hljs-attribute">temporary_api_key</span>: <span class="hljs-string">"appkey_testnet"</span>
-    }
-});
-</code></pre>
-<p>The params are passed in the URL. For testnet, the temporary_api_key is hardcoded, however for mainnet, you’ll be minted an app-specific api key, which will keep rotating.</p>
-<p>The refresh tokens and api keys will be handled largely through our SDK which is in development.</p>
 <h2 id="reading-from-adgraph">Reading from AdGraph</h2>
 <p>You can use your own indexers to read from AdGraph, or use our hosted subgraph.</p>
-<p>For accessing wallet addresses interested in particular tags, you can use our subgraph endpoint for testnet with the following GraphQL query:</p>
-<pre><code class="lang-graphql">query MyQuery {
-  <span class="hljs-keyword">tag</span>Addeds(
-    where: {tag_in: [<span class="hljs-string">"laptop"</span>, <span class="hljs-string">"technology"</span>, <span class="hljs-string">"adgraph"</span>]}
-  ) {
-    <span class="hljs-keyword">profile</span>
-    app
-    id
-    <span class="hljs-keyword">tag</span>
-  }
-}
-</code></pre>
-<p>Endpoint: <code>https://api.studio.thegraph.com/proxy/80137/adgraph/v0.0.4/graphql</code></p>
 <p>We are working on more diverse and better managed services for AdGraph. Keep visiting our docs for further info.</p>
 <p>Note: This is an alpha product, things might break. Active development is going on to help make the usage and onboarding easy. We would love to speak with anyone interested in it. Mail us at <a href="mailto:adgraph@debjit.dev">adgraph@debjit.dev</a> for issues you’re facing or custom GraphQL queries you need.</p>
-<h1 id="tech-we-used">Tech we used</h1>
-<h2 id="fleek-functions">Fleek functions</h2>
-<p>We use Fleek functions to handle the several tag addition requests coming from apps. The calls will be made directly from the browser, so having execution on edge is crucial. The function internally calls a function on our smart contract on Base, which is sponsored by Coinbase Paymaster.</p>
-<p>All the transaction execution code and paymaster integration is done right from within the Fleek function. So, adding the tag to the user’s onchain profile is as easy as calling the function with the user’s address and tag. It doesn’t need any pop ups etc.</p>
-<p>Read more about AdGraph and Fleek <a href="https://t.ly/fKit5">here</a>.</p>
-<p>IPFS CID: <code>bafkreihstluktgf3akcffuyt2svwqloicq6ircoxucofgbzeqecs676oki</code></p>
-<h2 id="coinbase-paymaster">CoinBase Paymaster</h2>
-<p>We use CoinBase Paymaster to sponsor the transactions. This is crucial for the user experience, as the user doesn’t need to pay for the transactions. The app can sponsor the transaction, and the user can just use the app without worrying about the gas fees.</p>
-<p>This experience has been simplified down to making a simple GET request to the Fleek function, and the function internally handles the transaction and the payment.</p>
-<p>This is done to integrate the Fleek Function in clickstream events, such as every interaction point, such as button clicks, page loads etc.</p>
-<h2 id="ai-wizardry">AI wizardry</h2>
-<p>We built the whole product, but didn&#39;t know how to make an advertiser understand the problem we were solving. We solved this using AI.</p>
-<p>We have a sample site which integrates AdGraph, and use AI where advertisers can upload content, from which we will automatically extract labels and perform searches to find the wallet addresses who will be interested in it. We show the advertisers the list of wallet addresses and which tags make them suited for the content.</p>
-<h2 id="the-graph">The Graph</h2>
-<p>We use The Graph for indexing the data. We have a hosted subgraph for testnet. This will make it easy for developers to read from AdGraph.</p>
 </body>
